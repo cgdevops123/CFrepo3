@@ -6,14 +6,7 @@ provider "azurerm" {
   tenant_id       = "28ced595-b935-4982-ad97-4b8fc5b306ca"
 }
 
-terraform {
-    backend "azurerm" {
-        resource_group_name ="cf-rg1"
-        storage_account_name = "tfremotecf"
-        container_name = "cfcon1"
-        key = "terraform.tfstate"
-    }
-}
+
 resource "azurerm_resource_group" "demo" {
   name     = "demo5rg"
     location = "westus"
