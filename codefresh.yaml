@@ -13,7 +13,7 @@ steps:
   init:
     type: freestyle
     title: Applying Terraform
-    working_directory: '${{CLONE_STEP_NAME}}'
+    working_directory: './CFrepo3'
     arguments:
       image: 'hashicorp/terraform:latest'
       commands:
