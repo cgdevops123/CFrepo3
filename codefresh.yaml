@@ -11,10 +11,14 @@ steps:
     git: "github"
     stage: prepare
   init:
-    image: hashicorp/terraform:0.13.0
-    title: Initializing Terraform
+    type: freestyle
+    title: Applying Terraform
+    working_directory: '${{CLONE_STEP_NAME}}'
+    arguments:
+      image: 'hashicorp/terraform:latest'
+      commands:
+        - terraform init
+        - terraform apply -auto-approve
     stage: apply
-    commands:
-      - terraform init  
-      - terraform apply -auto-approve
+    
     
