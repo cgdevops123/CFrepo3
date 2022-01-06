@@ -1,0 +1,20 @@
+version: "1.0"
+stages:
+  - prepare
+  - apply
+steps:
+  clone:
+    title: "Cloning repository"
+    type: "git-clone"
+    repo: "cgdevops123/CFrepo3"
+    revision: main
+    git: "github"
+    stage: prepare
+  init:
+    image: hashicorp/terraform:0.13.0
+    title: Initializing Terraform
+    stage: apply
+    commands:
+      - terraform init  
+      - terraform apply -auto-approve
+    
